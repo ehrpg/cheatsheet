@@ -1,0 +1,339 @@
+\documentclass[8pt,landscape,a4paper]{article}
+\usepackage{multicol}
+\usepackage{calc}
+\usepackage{ifthen}
+\usepackage[landscape]{geometry}
+\usepackage{amsmath,amsthm,amsfonts,amssymb}
+\usepackage{color,graphicx,overpic}
+\usepackage{hyperref}
+\usepackage{tabularx}
+
+
+\pdfinfo{
+  /Title (eh-cheatsheet.pdf)
+  /Creator (TeX)
+  /Producer (pdfTeX 1.40.0)
+  /Author (Florian Stinglmayr)
+  /Subject (Cheatsheet for Endless Horizons)
+  /Keywords (pdflatex, latex,pdftex,tex)}
+
+\ifthenelse{\lengthtest { \paperwidth = 11in}}
+    { \geometry{top=.5in,left=.5in,right=.5in,bottom=.5in} }
+    {\ifthenelse{ \lengthtest{ \paperwidth = 297mm}}
+        {\geometry{top=1cm,left=1cm,right=1cm,bottom=1cm} }
+        {\geometry{top=1cm,left=1cm,right=1cm,bottom=1cm} }
+    }
+
+\pagestyle{empty}
+
+\makeatletter
+\renewcommand{\section}{\@startsection{section}{1}{0mm}%
+                                {-1ex plus -.5ex minus -.2ex}%
+                                {0.5ex plus .2ex}%x
+                                {\normalfont\large\bfseries}}
+\renewcommand{\subsection}{\@startsection{subsection}{2}{0mm}%
+                                {-1ex plus -.5ex minus -.2ex}%
+                                {0.5ex plus .2ex}%
+                                {\normalfont\normalsize\bfseries}}
+\renewcommand{\subsubsection}{\@startsection{subsubsection}{3}{0mm}%
+                                {-1ex plus -.5ex minus -.2ex}%
+                                {1ex plus .2ex}%
+                                {\normalfont\small\bfseries}}
+\makeatother
+
+\def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
+    T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
+
+\setcounter{secnumdepth}{0}
+
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt plus 0.5ex}
+
+\newtheorem{example}[section]{Example}
+
+\begin{document}
+\raggedright
+\footnotesize
+\begin{multicols}{4}
+
+
+% multicol parameters
+% These lengths are set only within the two main columns
+%\setlength{\columnseprule}{0.25pt}
+\setlength{\premulticols}{1pt}
+\setlength{\postmulticols}{1pt}
+\setlength{\multicolsep}{1pt}
+\setlength{\columnsep}{2pt}
+
+\begin{center}
+     \Large{Endless Horizons - Cheatsheet} \\
+\end{center}
+
+\section{Attributes}
+
+Main attributes range are \emph{Strength}, \emph{Dexterity},
+\emph{Constitution}, \emph{Intelligence}, \emph{Perception},
+and \emph{Charisma}. Their ranks go from 0 to 10. With 5 being
+the average.
+
+\( Modifier = Rank - 5 \).
+
+Raising costs five times the new modifier:
+
+\( Cost = NewModifier * 5 \)
+
+Hit points are calculated from constitution and strength:
+
+\( Hit Points = 25 + CON Rank + STR Rank \)
+
+Maximum speed is calculate from strength and dexterity:
+
+\( Speed = 5 + DEX Mod + STR Mod \)
+
+Maximum effort is calculated from constitution and strength:
+
+\( Effort = 10 + (CON Mod + STR Mod) * 2 \)
+
+Effort can be spent before rolling to gain the amount of effort spent as a flat
+bonus to the next check.
+
+Carrying capacity is calculated from constitution and strength:
+
+\( Capacity = 10 + CON Mod + STR Mod \)
+
+\section{Movement}
+
+Movement is done in a round by spending speed points. If a character has
+no more speed points left, he can take a full round to regain speed points.
+
+\begin{center}
+\begin{tabular}{ll}
+Movement                     & Cost             \\
+Moving                       & 1 per metre      \\
+Running                      & 1 per two metres \\
+Jumping                      & 2 per metres     \\
+Jumping (running head start) & 1 per metre      \\
+Crawling                     & 2 per metre      \\
+Climbing                     & 3 per metre      \\
+Change combat stance         & 1                \\
+Recover from prone           & 2
+\end{tabular}
+\end{center}
+
+\emph{Difficult terrain} (stairs, snow, mud, slippery surfaces) doubles the
+cost. Effort can be used in stead, or to complement speed points.
+
+\section{Skills}
+
+Activation cost is 1 for normal skills, and 10 for special skills.
+Unactivated skill may only use negative ability modifiers.
+
+\( 1d10 + MOD1 + MOD2 + RANK + Morale \)
+
+The result must exceed or be equal to the DC.
+
+\begin{center}
+  \begin{tabular}{llll}
+\textbf{Name}             & \textbf{Ability} &  \textbf{Ability} &  \\
+Acrobatics                & DEX          & CON          &  \\
+Acting                    & CHA          & INT          &  \\
+Climbing                  & STR          & CON          &  \\
+Dodging                   & DEX          & PER          &  \\
+Driving                   & PER          & DEX          &  \\
+\textit{Engineering}      & \textit{INT} & \textit{INT} &  \\
+Escape Artist             & STR          & DEX          &  \\
+First Aid                 & INT          & PER          &  \\
+Heavy Weapons             & DEX          & PER          &  \\
+Intrusion                 & DEX          & INT          &  \\
+Language                  & PER          & INT          &  \\
+Light Weapons             & PER          & DEX          &  \\
+Mechanics                 & DEX          & INT          &  \\
+\textit{Medicine}         & \textit{PER} & \textit{INT} &  \\
+Melee Combat              & DEX          & STR          &  \\
+Micro Gravity             & DEX          & STR          &  \\
+Navigation                & INT          & PER          &  \\
+Notice                    & PER          & INT          &  \\
+Oratory                   & INT          & CHA          &  \\
+\textit{Pilot Spacecraft} & \textit{DEX} & \textit{PER} &  \\
+Public Affairs            & INT          & CHA          &  \\
+Questioning               & INT          & CHA          &  \\
+Radio Operations          & INT          & CHA          &  \\
+Running                   & STR          & CON          &  \\
+\textit{Science (Any)}    & \textit{INT} & \textit{INT} &  \\
+Sleight of Hand           & DEX          & CHA          &  \\
+Small Arms                & PER          & DEX          &  \\
+Small Unit Tactics        & INT          & PER          &  \\
+Stealth                   & DEX          & INT          &  \\
+Swimming                  & STR          & CON          &  \\
+Throwing                  & STR          & DEX          &
+  \end{tabular}
+\end{center}
+
+\section{Initiative}
+
+\(Initiative = 1d10 + DEX Mod + Morale\)
+
+\section{Ranged Combat}
+
+Single shot:
+
+\( DC = 5 + Range Penalty + Movement + Stance \)
+
+Each additional shot adds recoil penalty.
+
+\subsection{Stance}
+
+\begin{center}
+\begin{tabular}{llll}
+\textbf{Standing} & \textbf{Kneeling} & \textbf{Firing} & \textbf{Prone} \\
+-1                & -2                & -3              & +2
+\end{tabular}
+\end{center}
+
+\subsection{Movement}
+
+\begin{tabular}{llll}
+\textbf{Still} & \textbf{Subtle} & \textbf{Slow} & \textbf{Fast} \\
+-2             & 0               & +2            & +4
+\end{tabular}
+
+\subsection{Range}
+
+\(Maximum = \frac{effective}{2} <= range \)
+\(Far = \frac{effective}{4} < range < \frac{effective}{2} \)
+\(Medium = \frac{effective}{8} < range < \frac{effective}{4} \)
+\(Close = effective < \frac{effective}{8} \)
+
+\begin{center}
+  \begin{tabular}{lllll}
+                & \textbf{Close} & \textbf{Medium} & \textbf{Far} & \textbf{Max.} \\
+\textbf{Tiny}   & +3             & +6              & +12          & +18           \\
+\textbf{Small}  & +2             & +4              & +8           & +12           \\
+\textbf{Medium} & +1             & +2              & +4           & +6            \\
+\textbf{Large}  & -12            & -8              & -4           & -2            \\
+\textbf{Huge}   & -18            & -12             & -6           & -3
+\end{tabular}
+\end{center}
+
+\subsection{Misc.}
+
+\begin{center}
+\begin{tabularx}{\textwidth}{llXp{2.5cm}}
+\textbf{Action}     & \textbf{Bonus} & \textbf{Time} \\
+Aiming              & -2 DC          & 1 action      \\
+Clear minor fault   &                & 1 action      \\
+Drawing (holster)   &                & 1 action      \\
+Drawing (inventory) &                & 2 actions     \\
+Hiding              & -5 on stealth  &               \\
+Reloading           &                & $>$ 1 action
+\end{tabularx}
+\end{center}
+
+Aiming bonus to DC is lost is lost unless the shot is fired in the same round.
+Reload time may vary from weapon to weapon.
+
+\section{Melee Combat}
+
+\subsection{Attack}
+
+\(1d10 + Melee Combat + STR Mod + DEX Mod \)
+
+\subsection{Dodge}
+
+\(1d10 + Dodging + DEX Mod + PER Mod \)
+
+This value has to be greater than the attack.
+
+If the defender is flat footed (not aware of the action) he may not dodge. If
+the defender has no more action left he takes a cumulative -2 penalty on each
+additional dodge attempt.
+
+\subsection{Blocking}
+
+\(1d10 + CON Mod + STR Mod \)
+
+This value has to be greater than the attack. If blocking is successful then
+the damage is halved.
+
+\section{Damage}
+
+\subsection{Recover HP}
+
+Recovering HP with \emph{Medicine}:
+
+\(DC = \frac{HP Lost}{2} \)
+
+Recovering HP with \emph{First Aid}:
+
+\(DC = HP Lost\)
+
+This DC is used for diagnosis and then for treatment. First, diagnose to
+determine if the difference of your roll and your DC gives you a bonus to
+your treatment or a penalty.
+
+Then treat the damage with the same DC, but add (or subtract) the diagnose
+penalty or bonus:
+
+\(1d10 + Medicine + PER Mod + INT Mod + Diagnose Bonus\)
+
+\subsection{Death}
+
+Your character is dead if his hit points are at negative maximum hit points
+minus any suffered wounds.
+
+\(Death = HP <= ((Maximum HP - Wounds) * -1)\)
+
+\subsection{Staying Conscious}
+
+If your hit points drop below zero you have to roll if you remain conscious.
+
+\(DC = abs(Damage Below 0)\)
+
+\subsection{Wounds}
+
+On taking damage the character rolls to see if he sustains a wound.
+
+\(DC = Damage Taken \)
+
+The damage taken after armour, but before any zone multipliers is the DC
+for the check. On failure, the character takes one wound damage, which
+lowers his maximum HP. Wounds stack with each other.
+
+Recovering wounds works the same as recovering HP, except that the wound
+total is used instead of the HP lost. See above for further information.
+
+\section{States}
+
+\begin{center}
+\begin{tabularx}{\textwidth}{lp{4cm}}
+\textbf{State}     & \textbf{Penalty}                                      \\
+Blinded            & Cannot use PER mod or rank, +1 speed for all movement \\
+Deafened           & Cannot use PER mod or rank                            \\
+Nauseated          & -1 penalty on skill checks                            \\
+Sickened           & Depends on sickness                                   \\
+Stunned            & Cannot take actions or move                           \\
+Unconscious        & Is considered still, cannot move or take actions
+\end{tabularx}
+\end{center}
+
+If the character is \emph{blinded} and \emph{deafened} at the same time, the
+perception rank is considered to be at 1 (-4 modifier).
+
+\section{Morale}
+
+Morale ranges from -3 to +3. With -3 being despair, 0 being neutral and
++3 being an almost religious like frenzy to achieve the goal. Normally it is
+at 0. It is used as a bonus or penalty on all checks.
+
+To raise moral use \emph{Oratory} against the following DC:
+
+\(DC = 5 + abs(Morale)\)
+
+% You can even have references
+\rule{0.3\linewidth}{0.25pt}
+\scriptsize
+\bibliographystyle{abstract}
+\bibliography{refFile}
+\end{multicols}
+\end{document}
