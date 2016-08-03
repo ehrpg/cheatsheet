@@ -330,6 +330,141 @@ To raise moral use \emph{Oratory} against the following DC:
 
 \(DC = 5 + abs(Morale)\)
 
+\newpage
+
+\section{Vessels}
+
+All vessels have \emph{hit points}, \emph{armour} which acts as damage
+reduction for incoming damage, \emph{shields} which soak up damage before
+it is depleted, and speed. At zero the ship is considered disabled, and at
+minus HP it is considered destroyed.
+
+Ships also have modules (these are subsystems such as engines), and the
+module hit points are - unless otherwise specified, dependent on the size
+and the HP for the ship:
+
+Small: \(SubsystemHP = \frac{ShipHP}{2} \)
+
+Medium: \(SubsystemHP = \frac{ShipHP}{4} \)
+
+Large: \(SubsystemHP = \frac{ShipHP}{8} \)
+
+Capital: \(SubsystemHP = \frac{ShipHP}{12} \)
+
+Armour and shield apply to modules as well, and modules are considered destroyed
+at minus their HP, and disabled at zero (0) HP. Modules at zero HP are disabled
+and no longer work, and the cockpit or bridge may transfer damage to crew.
+
+Ships also has a type, which denotes which environments in can operate in:
+
+\begin{center}
+\begin{tabular}{ll}
+\textbf{Type}  & \textbf{Environment} \\
+Space & Can fly in out space  \\
+Air   & Can fly in atmosphere \\
+Land  & Moves on land         \\
+Water & Moves in or on water
+\end{tabular}
+\end{center}
+
+\subsection{Sizes}
+
+Size of the ship determines average hit points, and crew required to operate
+the vessel.
+
+\begin{center}
+\begin{tabular}{lll}
+\textbf{Size} & \textbf{Crew} & \textbf{HP}      \\
+Small         & 5-10          & 100              \\
+Medium        & 10-50         & 500              \\
+Large         & 100           & \textgreater1000 \\
+Capital       & 500           & \textgreater5000
+\end{tabular}
+\end{center}
+
+\subsection{Combat}
+
+Dog fights are handled by pitching \emph{Pilot Spacecraft} skill against the
+opponents \emph{Pilot Spacecraft} skill. Speed of the vessel is added to the
+roll.
+
+Long ranged combat works just as normal long ranged combat, except that
+\emph{Heavy Weapons} or \emph{Piloting} is used instead. All weapons have
+effective range and the same rules apply as above.
+
+Then roll against the hit table of the vessel to determine where the attack
+landed.
+
+\begin{tabular}{llll}
+\textbf{Still} & \textbf{Subtle} & \textbf{Slow} & \textbf{Fast} \\
+-2             & 0               & +2            & +4
+\end{tabular}
+
+\(Maximum = \frac{effective}{2} <= range \)
+\(Far = \frac{effective}{4} < range < \frac{effective}{2} \)
+\(Medium = \frac{effective}{8} < range < \frac{effective}{4} \)
+\(Close = effective < \frac{effective}{8} \)
+
+\begin{center}
+  \begin{tabular}{lllll}
+                & \textbf{Close} & \textbf{Medium} & \textbf{Far} & \textbf{Max.} \\
+\textbf{Tiny}   & +3             & +6              & +12          & +18           \\
+\textbf{Small}  & +2             & +4              & +8           & +12           \\
+\textbf{Medium} & +1             & +2              & +4           & +6            \\
+\textbf{Large}  & -12            & -8              & -4           & -2            \\
+\textbf{Huge}   & -18            & -12             & -6           & -3
+\end{tabular}
+\end{center}
+
+\subsection{Missiles}
+
+Guided missiles are treated as their own (small) vehicle, with piloting skill
+and speed. Point defence may be used to shoot them down. Missiles, generally
+attack twice, before running out of fuel.
+
+\subsection{Attack Module}
+
+You can target specific modules with the following bonuses or penalties on the
+DC to hit:
+
+\begin{center}
+\begin{tabular}{lllll}
+                 & \textbf{Small} & \textbf{Medium} & \textbf{Large} & \textbf{Capital} \\
+\textbf{Small}   & +2             & 0               & -2             & -4               \\
+\textbf{Medium}  & +4             & +2              & 0              & -2               \\
+\textbf{Large}   & +6             & +4              & +2             & 0                \\
+\textbf{Capital} & +8             & +6              & +4             & +2
+\end{tabular}
+\end{center}
+
+\subsection{Secondary Explosions}
+
+If certain modules are destroyed, they cause explosions and thus secondary
+damage to the ship.
+
+\emph{Sublight Engines}, \emph{Shield Generators} and \emph{FTL}:
+
+\begin{center}\begin{tabular}{ll}
+\textbf{Size} & \textbf{Damage} \\
+Small         & 5               \\
+Medium        & 20              \\
+Large         & 50              \\
+Capital       & 100
+\end{tabular}
+\end{center}
+
+\emph{Power Core}:
+
+\begin{center}\begin{tabular}{ll}
+\textbf{Size} & \textbf{Damage} \\
+Small         & 10              \\
+Medium        & 50              \\
+Large         & 100             \\
+Capital       & 250
+\end{tabular}
+\end{center}
+
+
 % You can even have references
 \rule{0.3\linewidth}{0.25pt}
 \scriptsize
